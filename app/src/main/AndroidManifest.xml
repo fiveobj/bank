@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bank" >
         <activity
-            android:name=".MainActivity"
+            android:name=".loginActivity"
             android:exported="false" />
         <activity
-            android:name=".loginActivity"
+            android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -7,31 +7,54 @@
     tools:context=".loginActivity"
     android:orientation="vertical">
 
+    <ImageView
+        android:paddingTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/back"
+        android:layout_marginTop="6dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="190dp"
+        android:src="@mipmap/login_logo"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="center"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
             android:text="账号"
             android:textColor="#ff484e54"
-            android:textSize="21sp"
-            android:layout_marginLeft="37dp"
-            />
+            android:textSize="18sp" />
 
         <EditText
+            android:layout_marginTop="3dp"
+            android:id="@+id/login_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="79dp"
+            android:background="#ffffff"
             android:hint="请输入手机号或身份证"
             android:textColor="#ffaaaaaa"
-            android:textSize="19sp"
-            android:layout_marginLeft="91dp"
-            android:background="#ffffff"
-            />
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/login_line"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="32dp"
+            android:scaleType="fitXY"/>
     </RelativeLayout>
     <RelativeLayout
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="31dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
@@ -40,40 +63,49 @@
             android:layout_height="wrap_content"
             android:text="密码"
             android:textColor="#ff484e54"
-            android:textSize="21sp"
-            android:layout_marginLeft="37dp"
+            android:textSize="18sp"
+            android:layout_marginLeft="32dp"
             />
 
         <EditText
+            android:id="@+id/login_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="79dp"
+            android:layout_marginTop="3dp"
+            android:background="#ffffff"
             android:hint="请输入登录密码"
             android:textColor="#ffaaaaaa"
-            android:textSize="19sp"
-            android:layout_marginLeft="91dp"
-            android:background="#ffffff"
-            />
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="35dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/login_line" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="25dp"
        >
 
         <ImageButton
-            android:layout_width="345dp"
-            android:layout_height="47dp"
+            android:id="@+id/login_btn"
+            android:layout_width="300dp"
+            android:layout_height="41dp"
             android:background="#ffffff"
-            android:src="@drawable/main_login"
-            />
+            android:src="@drawable/main_login" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="登录"
             android:textColor="#fff2f4f5"
-            android:textSize="21sp"
+            android:textSize="19sp"
             android:layout_centerInParent="true"
             />
     </RelativeLayout>
@@ -81,12 +113,12 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="37dp">
-        
+        android:layout_marginLeft="25dp">
+
         <CheckBox
+            android:id="@+id/login_policy"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -97,7 +129,7 @@
                 android:layout_height="21dp"
                 android:text="我已阅读并同意"
                 android:textColor="#484E54"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -112,35 +144,74 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="37dp"
-        android:layout_marginTop="9dp">
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="8dp">
+
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="24dp"
+            android:layout_height="wrap_content"
             android:text="立即注册"
             android:textColor="#ff484e54"
-            android:textSize="16sp"
-            />
+            android:textSize="16sp" />
+
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="24dp"
+            android:layout_height="wrap_content"
             android:text="忘记密码"
             android:textColor="#ff484e54"
             android:textSize="16sp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="37dp"
+            android:layout_marginRight="32dp"
             />
     </RelativeLayout>
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="93dp">
+        android:layout_marginTop="81dp">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="37dp"
+            android:layout_marginTop="12dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/login_line" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="27dp"
+            android:layout_centerHorizontal="true"
             android:text="第三方登录"
             android:textColor="#ffaaaaaa"
-            android:textSize="19sp"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="0.5dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="37dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/login_line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="14dp">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/login_wechat"
+            android:background="#ffffff"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/login_zfb"
+            android:background="#ffffff"
+            android:layout_marginLeft="150dp"
             />
     </RelativeLayout>
 </LinearLayout>
