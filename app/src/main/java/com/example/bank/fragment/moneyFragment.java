@@ -1,5 +1,6 @@
 package com.example.bank.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.bank.R;
 import com.example.bank.adapter.Money_fItemAdapter;
+import com.example.bank.deposit.DepositActivity;
 import com.example.bank.myclass.Money_fItem;
 import com.example.bank.tool.SpaceItemDecoration;
 
@@ -71,6 +73,7 @@ public class moneyFragment extends android.app.Fragment {
     private RecyclerView deposit_recyc;
     private Money_fItemAdapter adapter;
     private ArrayList<Money_fItem> list=new ArrayList<>();
+    private TextView deposit;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -78,11 +81,20 @@ public class moneyFragment extends android.app.Fragment {
         View view=inflater.inflate(R.layout.fragment_money, container, false);
         deposit_recyc=view.findViewById(R.id.fragment_money_recyclerView);
         initView(view);
+
+        deposit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), DepositActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
     private void initView(View view)
     {
+        deposit=view.findViewById(R.id.money_deposit_more);
 
         getData();
         adapter=new Money_fItemAdapter(this.getActivity(),list);
