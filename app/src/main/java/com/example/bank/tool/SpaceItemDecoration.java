@@ -7,6 +7,8 @@ import android.view.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+//设置recyclverview间距
+
 public class SpaceItemDecoration extends RecyclerView.ItemDecoration{
     private int leftRight;
     private int topBottom;

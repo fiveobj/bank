@@ -5,6 +5,8 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -13,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TableLayout;
 
 import com.example.bank.R;
+import com.example.bank.fragment.homeFragment;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -20,6 +23,8 @@ import java.util.List;
 
 public class DepositActivity extends AppCompatActivity {
 
+    private FragmentManager manager;
+    private FragmentTransaction transaction;
 
     private ImageView test;
     @Override
@@ -42,5 +47,10 @@ public class DepositActivity extends AppCompatActivity {
                 test.startAnimation(animation);
             }
         });
+
+        manager=getFragmentManager();
+        transaction=manager.beginTransaction();
+        transaction.add(R.id.deposit_layout,new MoneyAllDepositFragment());
+        transaction.commit();
     }
 }
