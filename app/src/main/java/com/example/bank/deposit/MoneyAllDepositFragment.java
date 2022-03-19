@@ -94,7 +94,7 @@ public class MoneyAllDepositFragment extends android.app.Fragment {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this.getActivity(), 1, GridLayoutManager.VERTICAL, false);
         gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         deposit_all_recyc.setLayoutManager(gridLayoutManager);
-        deposit_all_recyc.addItemDecoration(new SpaceItemDecoration(0,10));
+        deposit_all_recyc.addItemDecoration(new SpaceItemDecoration(0,0));
         deposit_all_recyc.setAdapter(adapter);
 
 

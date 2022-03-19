@@ -32,9 +32,6 @@ public class DepositActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deposit);
 
-
-
-
         test=findViewById(R.id.test);
         test.setOnClickListener(new View.OnClickListener() {
             @Override
