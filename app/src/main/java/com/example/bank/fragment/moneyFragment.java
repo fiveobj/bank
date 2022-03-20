@@ -18,6 +18,7 @@ import com.example.bank.adapter.Money_fItemAdapter;
 import com.example.bank.deposit.DepositActivity;
 import com.example.bank.myclass.Money_fItem;
 import com.example.bank.tool.SpaceItemDecoration;
+import com.example.bank.withdrawal.WithdrawalActivity;
 
 import org.w3c.dom.Text;
 
@@ -73,7 +74,7 @@ public class moneyFragment extends android.app.Fragment {
     private RecyclerView deposit_recyc;
     private Money_fItemAdapter adapter;
     private ArrayList<Money_fItem> list=new ArrayList<>();
-    private TextView deposit;
+    private TextView deposit,withdrawal;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -89,12 +90,21 @@ public class moneyFragment extends android.app.Fragment {
                 startActivity(intent);
             }
         });
+
+        withdrawal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), WithdrawalActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
     private void initView(View view)
     {
         deposit=view.findViewById(R.id.money_deposit_more);
+        withdrawal=view.findViewById(R.id.fragment_money_withdrawal);
 
         getData();
         adapter=new Money_fItemAdapter(this.getActivity(),list);

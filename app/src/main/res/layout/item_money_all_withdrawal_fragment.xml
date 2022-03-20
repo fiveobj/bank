@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="4dp"
+        android:layout_height="16dp"
+        android:src="@mipmap/money_view1"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="center_vertical"/>
+
+    <ImageView
+        android:id="@+id/item_money_all_withdrawal_view"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="9dp"
+        android:layout_gravity="center_vertical"/>
+
+    <TextView
+        android:id="@+id/item_money_all_withdrawal_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="定期存款"
+        android:textColor="#ff484e54"
+        android:textSize="12sp"
+        android:layout_marginLeft="6dp"
+        android:layout_gravity="center_vertical"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¥"
+        android:textColor="#ffb88960"
+        android:textSize="12sp"
+        android:layout_marginLeft="170dp"
+        android:layout_gravity="center_vertical"
+        />
+
+    <TextView
+        android:id="@+id/item_money_all_withdrawal_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1735"
+        android:textColor="#ffb88960"
+        android:textSize="12sp"
+        android:layout_gravity="center_vertical"
+        />
+
+    <ImageView
+        android:id="@+id/item_money_all_withdrawal_more"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@mipmap/withdrawal_all_more"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center_vertical"/>
+
+</LinearLayout>
