@@ -50,14 +50,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp">
+
         <TextView
+            android:id="@+id/deposit_all"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="全部存款"
             android:textColor="#ffff5639"
-            android:textSize="14sp"
-            />
+            android:textSize="14sp" />
         <TextView
+            android:id="@+id/deposit_my"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="我的存款"

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/item_money_my_withdrawal_tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="购买日期"
+        android:textColor="#ff484e54"
+        android:textSize="14sp"
+        android:layout_marginLeft="8dp"
+        />
+
+    <TextView
+        android:id="@+id/item_money_my_withdrawal_tv2"
+        android:layout_marginLeft="91dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="本金"
+        android:textColor="#ff484e54"
+        android:textSize="14sp"
+        />
+
+    <TextView
+        android:id="@+id/item_money_my_withdrawal_tv3"
+        android:layout_marginLeft="174dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="昨日收益"
+        android:textColor="#ff484e54"
+        android:textSize="14sp"
+        />
+
+    <TextView
+        android:id="@+id/item_money_my_withdrawal_tv4"
+        android:layout_marginLeft="268dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="总收益"
+        android:textColor="#DA412F"
+        android:textSize="14sp"
+        />
+</RelativeLayout>

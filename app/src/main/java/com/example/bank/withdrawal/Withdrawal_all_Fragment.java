@@ -5,13 +5,21 @@ import android.os.Bundle;
 
 import androidx.annotation.ArrayRes;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.SpannableString;
+import android.text.style.RelativeSizeSpan;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.bank.R;
+import com.example.bank.adapter.Money_withdrawal_all_adapter;
+import com.example.bank.myclass.Money_withdrawal_all;
+import com.example.bank.tool.SpaceItemDecoration;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
@@ -74,16 +82,37 @@ public class Withdrawal_all_Fragment extends android.app.Fragment {
     private ArrayList<String> xContents;
     private ArrayList<PieEntry> yContents;
 
+    private RecyclerView recyc;
+    private Money_withdrawal_all_adapter adapter;
+    private ArrayList<Money_withdrawal_all> list=new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_withdrawal_all_, container, false);
         chart=view.findViewById(R.id.withdrawal_chart);
+        recyc=view.findViewById(R.id.withdrawal_all_recyc);
+        list=getData();
+        adapter=new Money_withdrawal_all_adapter(getActivity(),list);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this.getActivity(), 1, GridLayoutManager.VERTICAL, false);
+        gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyc.setLayoutManager(gridLayoutManager);
+        recyc.addItemDecoration(new SpaceItemDecoration(0,80));
+        recyc.setAdapter(adapter);
         initdata();
         PieData pieData=getPieData(4,100);
         showChart(chart,pieData);
         return view;
+    }
+
+    private ArrayList<Money_withdrawal_all> getData() {
+        ArrayList<Money_withdrawal_all> list1 = new ArrayList<>();
+        list1.add(new Money_withdrawal_all(R.mipmap.withdrawal_all_view1, "定期存款", "1735"));
+        list1.add(new Money_withdrawal_all(R.mipmap.withdrawal_all_view2, "活期存款", "1735"));
+        list1.add(new Money_withdrawal_all(R.mipmap.withdrawal_all_view3, "定活两便", "1735"));
+        list1.add(new Money_withdrawal_all(R.mipmap.withdrawal_all_view4, "通知存款", "1735"));
+        list1.add(new Money_withdrawal_all(R.mipmap.withdrawal_all_view5, "大额存单", "1735"));
+        return list1;
     }
 
     private void initdata(){
@@ -103,17 +132,17 @@ public class Withdrawal_all_Fragment extends android.app.Fragment {
         xContents.add("大额订单");
 
         float m1=121;
-        float m2=41;
+        float m2=141;
         float m3=432;
-        float m4=633;
-        float m5=23;
+        float m4=233;
+        float m5=123;
 
         yContents=new ArrayList<>();
-        yContents.add(new PieEntry(m1,0));
-        yContents.add(new PieEntry(m2,1));
-        yContents.add(new PieEntry(m3,2));
-        yContents.add(new PieEntry(m4,3));
-        yContents.add(new PieEntry(m5,4));
+        yContents.add(new PieEntry(m1,"定期存款"));
+        yContents.add(new PieEntry(m2,"活期存款"));
+        yContents.add(new PieEntry(m3,"定活两便"));
+        yContents.add(new PieEntry(m4,"通知存款"));
+        yContents.add(new PieEntry(m5,"大额订单"));
 
 
     }
@@ -137,7 +166,7 @@ public class Withdrawal_all_Fragment extends android.app.Fragment {
     private void showChart(PieChart pieChart, PieData pieData) {
 //            pieChart.setHoleColorTransparent(true);
         //半径
-        pieChart.setHoleRadius(60f);
+        pieChart.setHoleRadius(65f);
         //半透明圈
         pieChart.setTransparentCircleRadius(64f);
 //            pieChart.setHoleRadius(0);  //实心圆
@@ -151,9 +180,12 @@ public class Withdrawal_all_Fragment extends android.app.Fragment {
         //可以手动旋转
         pieChart.setRotationEnabled(true);
         //显示成百分比
-        pieChart.setUsePercentValues(false);
+        pieChart.setUsePercentValues(true);
+        pieChart.getDescription().setEnabled(false);
+        pieChart.setExtraOffsets(5,10,5,5);
+        pieChart.setDrawEntryLabels(false);
         //饼状图中间的文字
-        pieChart.setCenterText("总资产（元）50000");
+        pieChart.setCenterText(generateCenterSpannableText());
         //设置数据
         pieChart.setData(pieData);
 
@@ -166,6 +198,17 @@ public class Withdrawal_all_Fragment extends android.app.Fragment {
         //设置动画
         pieChart.animateXY(1000, 1000);
 //        	pieChart.spin(2000, 0, 360);
+    }
+
+    protected SpannableString generateCenterSpannableText() {
+        SpannableString s = new SpannableString("总资产（元）50000");
+        s.setSpan(new RelativeSizeSpan(1.3f), 0, s.length(), 0);
+        //s.setSpan(new StyleSpan(Typeface.NORMAL), 14, s.length() - 15, 0);
+        //s.setSpan(new ForegroundColorSpan(Color.GRAY), 14, s.length() - 15, 0);
+        //s.setSpan(new RelativeSizeSpan(.8f), 14, s.length() - 15, 0);
+        //s.setSpan(new StyleSpan(Typeface.ITALIC), s.length() - 14, s.length(), 0);
+        //s.setSpan(new ForegroundColorSpan(ColorTemplate.getHoloBlue()), s.length() - 14, s.length(), 0);
+        return s;
     }
 
 }

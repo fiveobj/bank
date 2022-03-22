@@ -57,6 +57,7 @@
     android:layout_gravity="center_horizontal"
     android:elevation="5dp">
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/money_my_deposit_frecyc"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"/>

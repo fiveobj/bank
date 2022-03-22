@@ -3,12 +3,20 @@ package com.example.bank.withdrawal;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.bank.R;
+import com.example.bank.adapter.Money_withdrawal_my_adapter;
+import com.example.bank.myclass.Money_withdrawal_my;
+import com.example.bank.tool.SpaceItemDecoration;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,10 +65,37 @@ public class Withdrawal_my_Fragment extends android.app.Fragment {
         }
     }
 
+    private RecyclerView recyc;
+    private ArrayList<Money_withdrawal_my> list=new ArrayList<>();
+    private Money_withdrawal_my_adapter adapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_withdrawal_my_, container, false);
+
+        View view=inflater.inflate(R.layout.fragment_withdrawal_my_, container, false);
+
+        recyc=view.findViewById(R.id.withdrawal_my_recyc);
+        list=getdata();
+        adapter=new Money_withdrawal_my_adapter(getActivity(),list);
+        GridLayoutManager gridLayoutManager=new GridLayoutManager(getActivity(),1,GridLayoutManager.VERTICAL,false);
+        gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyc.setLayoutManager(gridLayoutManager);
+        recyc.addItemDecoration(new SpaceItemDecoration(0,40));
+        recyc.setAdapter(adapter);
+        return view;
+    }
+
+    private ArrayList<Money_withdrawal_my> getdata() {
+
+        ArrayList<Money_withdrawal_my> list1=new ArrayList<>();
+        list1.add(new Money_withdrawal_my("购买日期","本金","昨日收益","总收益"));
+        list1.add(new Money_withdrawal_my("2022-1-1","1000.00","33.00","+10.00"));
+        list1.add(new Money_withdrawal_my("2022-1-1","1000.00","33.00","+10.00"));
+        list1.add(new Money_withdrawal_my("2022-1-1","1000.00","33.00","+10.00"));
+        list1.add(new Money_withdrawal_my("2022-1-1","1000.00","33.00","+10.00"));
+        list1.add(new Money_withdrawal_my("2022-1-1","1000.00","33.00","+10.00"));
+
+        return list1;
     }
 }

@@ -44,7 +44,7 @@ public class Money_withdrawal_all_adapter extends RecyclerView.Adapter<RecyclerV
 
     @Override
     public int getItemCount() {
-        return 0;
+        return list.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{

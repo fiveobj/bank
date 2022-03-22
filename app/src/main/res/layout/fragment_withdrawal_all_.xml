@@ -6,15 +6,18 @@
     tools:context=".withdrawal.Withdrawal_all_Fragment"
     android:orientation="vertical">
 
-<com.github.mikephil.charting.charts.PieChart
-    android:layout_width="match_parent"
-    android:layout_height="300dp"
-    android:layout_gravity="center_horizontal"
-    android:id="@+id/withdrawal_chart"/>
+    <com.github.mikephil.charting.charts.PieChart
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/withdrawal_chart"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/withdrawal_recyc"
+        android:id="@+id/withdrawal_all_recyc"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"/>
+
+
 </LinearLayout>
