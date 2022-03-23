@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".my.CardActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/back"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的银行卡"
+            android:textColor="#ff484e54"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/my_cardview2"
+            android:scaleType="fitXY"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/my_cardview4"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="26dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="中国银行"
+            android:textColor="#fffffbfa"
+            android:textSize="14sp"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="83dp"
+            />
+
+        <TextView
+            android:layout_marginTop="49dp"
+            android:layout_marginLeft="82dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="储蓄卡"
+            android:textColor="#fffffbfa"
+            android:textSize="12sp"
+            />
+
+        <TextView
+            android:layout_marginTop="82dp"
+            android:layout_marginLeft="84dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="****  ****  ****6161"
+            android:textColor="#fffffbfa"
+            android:textSize="14sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="默认"
+            android:textColor="#fffffbfa"
+            android:textSize="12sp"
+            android:layout_marginTop="26dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="25dp"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/my_cardview1"
+            android:scaleType="fitXY"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/my_cardview3"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="26dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="中国银行"
+            android:textColor="#fffffbfa"
+            android:textSize="14sp"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="83dp"
+            />
+
+        <TextView
+            android:layout_marginTop="49dp"
+            android:layout_marginLeft="82dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="储蓄卡"
+            android:textColor="#fffffbfa"
+            android:textSize="12sp"
+            />
+
+        <TextView
+            android:layout_marginTop="82dp"
+            android:layout_marginLeft="84dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="****  ****  ****6161"
+            android:textColor="#fffffbfa"
+            android:textSize="14sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设为默认"
+            android:textColor="#fffffbfa"
+            android:textSize="12sp"
+            android:layout_marginTop="26dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="25dp"
+            />
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/my_cardview5"
+        android:layout_gravity="center_horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/my_cardview6"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="29dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="添加银行卡"
+            android:textColor="#ff484e54"
+            android:textSize="11sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="78dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="支持储蓄卡/信用卡"
+            android:textColor="#ff484e54"
+            android:textSize="11sp"
+            android:layout_marginTop="98dp"
+            android:layout_centerHorizontal="true"
+            />
+
+    </RelativeLayout>
+</LinearLayout>

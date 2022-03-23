@@ -1,6 +1,7 @@
 package com.example.bank.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bank.R;
+import com.example.bank.deposit.MoneyAllDepositSureActivity;
 import com.example.bank.myclass.Money_deposit_all_item1;
 import com.example.bank.myclass.Money_deposit_all_item2;
 import com.example.bank.myclass.Money_fItem;
@@ -50,6 +52,14 @@ public class Money_deposit_all_adapter extends RecyclerView.Adapter<RecyclerView
         gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         vh.recyc2.setLayoutManager(gridLayoutManager);
         vh.recyc2.setAdapter(adapter);
+        vh.more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                intent=new Intent(context, MoneyAllDepositSureActivity.class);
+                context.startActivity(intent);
+            }
+        });
 
 
     }
@@ -60,12 +70,13 @@ public class Money_deposit_all_adapter extends RecyclerView.Adapter<RecyclerView
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView name;
+        private TextView name,more;
         private RecyclerView recyc2;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name=itemView.findViewById(R.id.item_money_all_deposit_ftv);
             recyc2=itemView.findViewById(R.id.item_money_all_deposit_frecyc);
+            more=itemView.findViewById(R.id.item_money_all_deposit_fmore);
         }
     }
 }

@@ -21,7 +21,7 @@ public class Money_deposit_all_son_adapter extends RecyclerView.Adapter<Recycler
     private Context context;
     private ArrayList<Money_deposit_all_item2> list=new ArrayList<>();
 
-    Money_deposit_all_son_adapter(Context context, ArrayList<Money_deposit_all_item2> list)
+    public Money_deposit_all_son_adapter(Context context, ArrayList<Money_deposit_all_item2> list)
     {
         this.context=context;
         this.list=list;
