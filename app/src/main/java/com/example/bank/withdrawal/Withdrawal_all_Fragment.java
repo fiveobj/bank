@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import com.example.bank.R;
 import com.example.bank.adapter.Money_withdrawal_all_adapter;
 import com.example.bank.myclass.Money_withdrawal_all;
+import com.example.bank.tool.OKhttpClass;
 import com.example.bank.tool.SpaceItemDecoration;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
@@ -26,6 +27,10 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -85,6 +90,7 @@ public class Withdrawal_all_Fragment extends android.app.Fragment {
     private RecyclerView recyc;
     private Money_withdrawal_all_adapter adapter;
     private ArrayList<Money_withdrawal_all> list=new ArrayList<>();
+    private int[] vieww=new int[]{R.mipmap.withdrawal_all_view1,R.mipmap.withdrawal_all_view2,R.mipmap.withdrawal_all_view3,R.mipmap.withdrawal_all_view4,R.mipmap.withdrawal_all_view5};
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -100,8 +106,7 @@ public class Withdrawal_all_Fragment extends android.app.Fragment {
         recyc.addItemDecoration(new SpaceItemDecoration(0,80));
         recyc.setAdapter(adapter);
         initdata();
-        PieData pieData=getPieData(4,100);
-        showChart(chart,pieData);
+
         return view;
     }
 
@@ -124,25 +129,68 @@ public class Withdrawal_all_Fragment extends android.app.Fragment {
         colors.add(Color.rgb(45,47,60));
         colors.add(Color.rgb(255,51,51));
 
-        xContents=new ArrayList<String>();
-        xContents.add("定期存款");
-        xContents.add("活期存款");
-        xContents.add("定活两便");
-        xContents.add("通知存款");
-        xContents.add("大额订单");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                OKhttpClass oKhttpClass=new OKhttpClass();
+                String result=oKhttpClass.ban6("1");
+                try {
+                    JSONObject jsonObject=new JSONObject(result);
+                    String data=jsonObject.getString("data");
+                    JSONArray jsonArray=new JSONArray(data);
+                    for (int i=0;i<jsonArray.length();i++)
+                    {
+                        String data1=jsonArray.get(i).toString();
+                        JSONObject jsonObject1=new JSONObject(data1);
+                        String propertyType=jsonObject1.getString("propertyType");
+                        String sumtotal=jsonObject1.getString("sumtotal");
+                        Money_withdrawal_all item=new Money_withdrawal_all(vieww[i],propertyType,sumtotal);
+                        list.add(item);
+                    }
+                    xContents=new ArrayList<String>();
+                   /* xContents.add("定期存款");
+                    xContents.add("活期存款");
+                    xContents.add("定活两便");
+                    xContents.add("通知存款");
+                    xContents.add("大额订单");*/
+                    for (int i=0;i<list.size();i++)
+                    {
+                        xContents.add(list.get(i).getName());
+                    }
 
-        float m1=121;
-        float m2=141;
-        float m3=432;
-        float m4=233;
-        float m5=123;
+                    float[] m=new float[]{121,141,432,233,123};
+                    /*float m1=121;
+                    float m2=141;
+                    float m3=432;
+                    float m4=233;
+                    float m5=123;*/
 
-        yContents=new ArrayList<>();
-        yContents.add(new PieEntry(m1,"定期存款"));
-        yContents.add(new PieEntry(m2,"活期存款"));
-        yContents.add(new PieEntry(m3,"定活两便"));
-        yContents.add(new PieEntry(m4,"通知存款"));
-        yContents.add(new PieEntry(m5,"大额订单"));
+                    yContents=new ArrayList<>();
+                   /* yContents.add(new PieEntry(m1,"定期存款"));
+                    yContents.add(new PieEntry(m2,"活期存款"));
+                    yContents.add(new PieEntry(m3,"定活两便"));
+                    yContents.add(new PieEntry(m4,"通知存款"));
+                    yContents.add(new PieEntry(m5,"大额订单"));*/
+                    for (int i=0;i<list.size();i++)
+                    {
+                        yContents.add(new PieEntry(m[i],list.get(i).getName()));
+                    }
+
+
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            adapter=new Money_withdrawal_all_adapter(getActivity(),list);
+                            recyc.setAdapter(adapter);
+                            PieData pieData=getPieData(4,100);
+                            showChart(chart,pieData);
+                        }
+                    });
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
 
 
     }

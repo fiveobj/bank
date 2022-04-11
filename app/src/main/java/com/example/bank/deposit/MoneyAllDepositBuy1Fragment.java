@@ -1,12 +1,14 @@
 package com.example.bank.deposit;
 
+import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.example.bank.R;
 
@@ -57,10 +59,23 @@ public class MoneyAllDepositBuy1Fragment extends Fragment {
         }
     }
 
+    private RelativeLayout next;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_money_all_deposit_buy1, container, false);
+        View view=inflater.inflate(R.layout.fragment_money_all_deposit_buy1, container, false);
+
+        next=view.findViewById(R.id.deposit_all_buy1_next);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               getActivity().getFragmentManager()
+                       .beginTransaction()
+                       .replace(R.id.deposit_buy_relative,new MoneyAllDepositBuy2Fragment())
+                       .addToBackStack(null)
+                       .commit();
+            }
+        });
+        return view;
     }
 }

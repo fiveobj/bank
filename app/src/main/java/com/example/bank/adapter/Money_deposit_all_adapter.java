@@ -1,5 +1,6 @@
 package com.example.bank.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -43,7 +44,7 @@ public class Money_deposit_all_adapter extends RecyclerView.Adapter<RecyclerView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         ViewHolder vh=(ViewHolder) holder;
         vh.name.setText(list.get(position).getName());
         Log.d("adapter1",list.get(position).getName());
@@ -57,6 +58,7 @@ public class Money_deposit_all_adapter extends RecyclerView.Adapter<RecyclerView
             public void onClick(View v) {
                 Intent intent;
                 intent=new Intent(context, MoneyAllDepositSureActivity.class);
+                intent.putExtra("type",list.get(position).getName());
                 context.startActivity(intent);
             }
         });

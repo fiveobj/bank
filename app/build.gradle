@@ -47,5 +47,5 @@ dependencies {
     implementation 'com.android.support:design:23.3.0'
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
-
+    implementation 'com.squareup.okhttp3:okhttp:4.8.0'
 }

@@ -85,8 +85,8 @@ public class DepositActivity extends AppCompatActivity {
     private void exchangeImage(boolean isall)
     {
         if (isall){
-            float fromx=15;
-            float tox=360;
+            float fromx=0;
+            float tox=440;
             Animation animation=new TranslateAnimation(fromx,tox,0,0);
             animation.setFillAfter(true);
             animation.setDuration(500);
@@ -94,8 +94,8 @@ public class DepositActivity extends AppCompatActivity {
             this.isall=false;
         }
         else {
-            float fromx=360;
-            float tox=15;
+            float fromx=440;
+            float tox=0;
             Animation animation=new TranslateAnimation(fromx,tox,0,0);
             animation.setFillAfter(true);
             animation.setDuration(500);

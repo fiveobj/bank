@@ -1,6 +1,7 @@
 package com.example.bank.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bank.R;
+import com.example.bank.deposit.MoneyAllDepositBuyActivity;
 import com.example.bank.myclass.Money_deposit_all_item2;
 
 import java.util.ArrayList;
@@ -42,7 +44,14 @@ public class Money_deposit_all_son_adapter extends RecyclerView.Adapter<Recycler
         vh.time.setText(list.get(position).getTime());
         vh.money.setText(list.get(position).getMoneystart());
         vh.brief.setText(list.get(position).getBrief());
-
+        vh.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                intent=new Intent(context, MoneyAllDepositBuyActivity.class);
+                context.startActivity(intent);
+            }
+        });
 
     }
 

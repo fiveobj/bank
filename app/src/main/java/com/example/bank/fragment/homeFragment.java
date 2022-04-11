@@ -3,12 +3,20 @@ package com.example.bank.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.bank.R;
+import com.example.bank.adapter.Money_fItemAdapter;
+import com.example.bank.myclass.Money_fItem;
+import com.example.bank.tool.SpaceItemDecoration;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,10 +65,35 @@ public class homeFragment extends android.app.Fragment {
         }
     }
 
+    private RecyclerView deposit_recyc;
+    private Money_fItemAdapter adapter;
+    private ArrayList<Money_fItem> list=new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view=inflater.inflate(R.layout.fragment_home, container, false);
+
+        deposit_recyc=view.findViewById(R.id.home_recyc);
+
+        getData();
+        adapter=new Money_fItemAdapter(this.getActivity(),list);
+
+        //3列展示
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this.getActivity(), 3, GridLayoutManager.VERTICAL, false);
+        gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        deposit_recyc.setLayoutManager(gridLayoutManager);
+        deposit_recyc.addItemDecoration(new SpaceItemDecoration(6,45));
+        deposit_recyc.setAdapter(adapter);
+        return view;
+    }
+
+    private void getData() {
+        ArrayList<Money_fItem> list1=new ArrayList<>();
+        list.add(new Money_fItem("定活两便","2.1%","50元起存","不定期"));
+        list.add(new Money_fItem("定活两便","2.1%","50元起存","不定期"));
+        list.add(new Money_fItem("定活两便","2.1%","50元起存","不定期"));
+        //return list1;
+
     }
 }

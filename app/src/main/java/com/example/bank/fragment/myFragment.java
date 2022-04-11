@@ -1,21 +1,24 @@
 package com.example.bank.fragment;
 
+import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.example.bank.R;
+import com.example.bank.my.CardActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link myFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class myFragment extends android.app.Fragment {
+public class myFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,10 +60,21 @@ public class myFragment extends android.app.Fragment {
         }
     }
 
+    private RelativeLayout my_card;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my, container, false);
+        View view=inflater.inflate(R.layout.fragment_my, container, false);
+        my_card=view.findViewById(R.id.my_card);
+        my_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                intent=new Intent(getActivity(), CardActivity.class);
+                startActivity(intent);
+            }
+        });
+        return view;
     }
 }

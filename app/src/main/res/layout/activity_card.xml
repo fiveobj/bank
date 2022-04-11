@@ -6,11 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".my.CardActivity"
     android:orientation="vertical">
-
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         >
         <ImageView
             android:layout_width="wrap_content"
@@ -30,24 +33,26 @@
             />
 
     </RelativeLayout>
+</androidx.cardview.widget.CardView>
+
 
     <RelativeLayout
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
+        android:layout_width="330dp"
+        android:layout_height="170dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         >
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:src="@mipmap/my_cardview2"
             android:scaleType="fitXY"/>
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:src="@mipmap/my_cardview4"
-            android:layout_marginLeft="33dp"
-            android:layout_marginTop="26dp"/>
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="40dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -55,13 +60,13 @@
             android:text="中国银行"
             android:textColor="#fffffbfa"
             android:textSize="14sp"
-            android:layout_marginTop="24dp"
-            android:layout_marginLeft="83dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="100dp"
             />
 
         <TextView
-            android:layout_marginTop="49dp"
-            android:layout_marginLeft="82dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginLeft="100dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="储蓄卡"
@@ -70,8 +75,8 @@
             />
 
         <TextView
-            android:layout_marginTop="82dp"
-            android:layout_marginLeft="84dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="100dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="****  ****  ****6161"
@@ -85,29 +90,29 @@
             android:text="默认"
             android:textColor="#fffffbfa"
             android:textSize="12sp"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="40dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="25dp"
+            android:layout_marginRight="45dp"
             />
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
+        android:layout_width="330dp"
+        android:layout_height="170dp"
         android:layout_gravity="center_horizontal"
         >
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:src="@mipmap/my_cardview1"
             android:scaleType="fitXY"/>
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:src="@mipmap/my_cardview3"
-            android:layout_marginLeft="33dp"
-            android:layout_marginTop="26dp"/>
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="40dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -115,13 +120,13 @@
             android:text="中国银行"
             android:textColor="#fffffbfa"
             android:textSize="14sp"
-            android:layout_marginTop="24dp"
-            android:layout_marginLeft="83dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="100dp"
             />
 
         <TextView
-            android:layout_marginTop="49dp"
-            android:layout_marginLeft="82dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginLeft="100dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="储蓄卡"
@@ -130,8 +135,8 @@
             />
 
         <TextView
-            android:layout_marginTop="82dp"
-            android:layout_marginLeft="84dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="100dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="****  ****  ****6161"
@@ -145,16 +150,16 @@
             android:text="设为默认"
             android:textColor="#fffffbfa"
             android:textSize="12sp"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="40dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="25dp"
+            android:layout_marginRight="45dp"
             />
 
     </RelativeLayout>
     
     <RelativeLayout
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
+        android:layout_width="330dp"
+        android:layout_height="170dp"
         android:background="@mipmap/my_cardview5"
         android:layout_gravity="center_horizontal">
         <ImageView

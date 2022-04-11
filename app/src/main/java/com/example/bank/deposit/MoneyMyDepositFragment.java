@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import com.example.bank.R;
 import com.example.bank.adapter.Money_deposit_my_adapter;
 import com.example.bank.adapter.Money_withdrawal_my_adapter;
 import com.example.bank.myclass.Money_deposit_my_item;
+import com.example.bank.tool.OKhttpClass;
 import com.example.bank.tool.SpaceItemDecoration;
 
 import java.util.ArrayList;
@@ -87,7 +89,7 @@ public class MoneyMyDepositFragment extends android.app.Fragment {
         recyc.addItemDecoration(new SpaceItemDecoration(0,20));
         recyc.setAdapter(adapter);
 
-
+        getokhttpdata();
         return view;
     }
 
@@ -99,5 +101,21 @@ public class MoneyMyDepositFragment extends android.app.Fragment {
         list1.add(new Money_deposit_my_item("定期存款","3333.00","+333.00"));
         list1.add(new Money_deposit_my_item("定期存款","3333.00","+333.00"));
         return list1;
+    }
+
+    private void getokhttpdata()
+    {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                OKhttpClass oKhttpClass=new OKhttpClass();
+                String result=oKhttpClass.ban4("1");
+                String result1=oKhttpClass.ban5("1");
+                String result2=oKhttpClass.ban6("1");
+                Log.d("bank4",result);
+                Log.d("bank5",result1);
+                Log.d("bank6",result2);
+            }
+        }).start();
     }
 }

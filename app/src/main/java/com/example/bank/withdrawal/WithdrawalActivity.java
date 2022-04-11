@@ -68,8 +68,8 @@ public class WithdrawalActivity extends AppCompatActivity {
     private void exchangeImage(boolean isall)
     {
         if (isall){
-            float fromx=15;
-            float tox=400;
+            float fromx=0;
+            float tox=470;
             Animation animation=new TranslateAnimation(fromx,tox,0,0);
             animation.setFillAfter(true);
             animation.setDuration(500);
@@ -77,8 +77,8 @@ public class WithdrawalActivity extends AppCompatActivity {
             this.isall=false;
         }
         else {
-            float fromx=400;
-            float tox=15;
+            float fromx=470;
+            float tox=0;
             Animation animation=new TranslateAnimation(fromx,tox,0,0);
             animation.setFillAfter(true);
             animation.setDuration(500);

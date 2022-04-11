@@ -6,11 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".deposit.MoneyAllDepositBuyActivity"
     android:orientation="vertical">
-
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         >
         <ImageView
             android:layout_width="wrap_content"
@@ -45,8 +48,11 @@
             android:layout_marginRight="16dp"/>
 
     </RelativeLayout>
+</androidx.cardview.widget.CardView>
+
 
     <RelativeLayout
+        android:id="@+id/deposit_buy_relative"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

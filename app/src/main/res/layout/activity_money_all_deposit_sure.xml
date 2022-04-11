@@ -7,45 +7,51 @@
     tools:context=".deposit.MoneyAllDepositSureActivity"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_height="75dp"
         >
-        <ImageView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/back"
-            android:layout_marginLeft="10dp"
-            android:layout_centerVertical="true"/>
+            android:layout_marginTop="40dp"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/back"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="定期存款"
-            android:textColor="#ff484e54"
-            android:textSize="18sp"
-            android:layout_centerHorizontal="true"
-            android:textStyle="bold"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="定期存款"
+                android:textColor="#ff484e54"
+                android:textSize="18sp"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/my_searve"
-            android:layout_marginRight="53dp"
-            android:layout_alignParentRight="true"
-            />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/my_searve"
+                android:layout_marginRight="53dp"
+                android:layout_alignParentRight="true"
+                />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/deposit_more"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="16dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/deposit_more"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"/>
 
-    </RelativeLayout>
-    
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
