@@ -35,24 +35,18 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
             />
+
         <TextView
+            android:id="@+id/all_deposit_buy2_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="55dp"
             android:text="¥3000.00"
             android:textColor="#fffffbfa"
-            android:textSize="24sp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="45dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="叁仟元整"
-            android:textColor="#fffffbfa"
-            android:textSize="14sp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="80dp"
-            />
+            android:textSize="24sp" />
+
+
 
         <androidx.cardview.widget.CardView
             android:layout_width="324.5dp"
@@ -78,15 +72,16 @@
                         android:textSize="14sp"
                         android:layout_marginLeft="10dp"
                         />
+
                     <TextView
+                        android:id="@+id/all_deposit_buy2_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
                         android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
                         android:text="新客专享定期三年期"
                         android:textColor="#ff484e54"
-                        android:textSize="14sp"
-                        />
+                        android:textSize="14sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -97,40 +92,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="产品名称"
-                        android:textColor="#ff484e54"
-                        android:textSize="14sp"
                         android:layout_marginLeft="10dp"
-                        />
+                        android:text="币种"
+                        android:textColor="#ff484e54"
+                        android:textSize="14sp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
                         android:layout_alignParentRight="true"
-                        android:text="新客专享定期三年期"
-                        android:textColor="#ff484e54"
-                        android:textSize="14sp"
-                        />
-                </RelativeLayout>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="产品名称"
-                        android:textColor="#ff484e54"
-                        android:textSize="14sp"
-                        android:layout_marginLeft="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:layout_alignParentRight="true"
-                        android:text="新客专享定期三年期"
+                        android:text="人民币"
                         android:textColor="#ff484e54"
                         android:textSize="14sp"
                         />
@@ -143,20 +114,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="产品名称"
+                        android:text="存期"
                         android:textColor="#ff484e54"
                         android:textSize="14sp"
                         android:layout_marginLeft="10dp"
                         />
+
                     <TextView
+                        android:id="@+id/all_deposit_buy2_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
                         android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
                         android:text="新客专享定期三年期"
                         android:textColor="#ff484e54"
-                        android:textSize="14sp"
-                        />
+                        android:textSize="14sp" />
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -166,20 +138,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="产品名称"
+                        android:text="年利率"
                         android:textColor="#ff484e54"
                         android:textSize="14sp"
                         android:layout_marginLeft="10dp"
                         />
+
                     <TextView
+                        android:id="@+id/all_deposit_buy2_rate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
                         android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
                         android:text="新客专享定期三年期"
                         android:textColor="#ff484e54"
-                        android:textSize="14sp"
-                        />
+                        android:textSize="14sp" />
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -189,20 +162,44 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="产品名称"
+                        android:text="预计到期收益"
                         android:textColor="#ff484e54"
                         android:textSize="14sp"
                         android:layout_marginLeft="10dp"
                         />
+
+                    <TextView
+                        android:id="@+id/all_deposit_buy2_income"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:text="新客专享定期三年期"
+                        android:textColor="#ff484e54"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:layout_alignParentRight="true"
-                        android:text="新客专享定期三年期"
+                        android:text="转出账户"
                         android:textColor="#ff484e54"
                         android:textSize="14sp"
+                        android:layout_marginLeft="10dp"
                         />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:text="8292****6161"
+                        android:textColor="#ff484e54"
+                        android:textSize="14sp" />
                 </RelativeLayout>
 
             </LinearLayout>
@@ -250,6 +247,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/all_deposit_buy2_buy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@mipmap/depositbuy_view12"

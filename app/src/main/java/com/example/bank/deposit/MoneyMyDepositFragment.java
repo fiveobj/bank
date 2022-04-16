@@ -11,13 +11,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.bank.R;
 import com.example.bank.adapter.Money_deposit_my_adapter;
 import com.example.bank.adapter.Money_withdrawal_my_adapter;
 import com.example.bank.myclass.Money_deposit_my_item;
+import com.example.bank.myclass.Money_withdrawal_my;
 import com.example.bank.tool.OKhttpClass;
 import com.example.bank.tool.SpaceItemDecoration;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -71,7 +77,7 @@ public class MoneyMyDepositFragment extends android.app.Fragment {
     private RecyclerView recyc;
     private ArrayList<Money_deposit_my_item> list=new ArrayList<>();
     private Money_deposit_my_adapter adapter;
-
+    private TextView total;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -79,7 +85,7 @@ public class MoneyMyDepositFragment extends android.app.Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_money_my_deposit, container, false);
 
-
+        total=view.findViewById(R.id.money_my_deposit_total);
         recyc=view.findViewById(R.id.money_my_deposit_frecyc);
         list=getData();
         adapter=new Money_deposit_my_adapter(getActivity(),list);
@@ -96,10 +102,7 @@ public class MoneyMyDepositFragment extends android.app.Fragment {
     private ArrayList<Money_deposit_my_item> getData() {
 
         ArrayList<Money_deposit_my_item> list1=new ArrayList<>();
-        list1.add(new Money_deposit_my_item("定期存款","3333.00","+333.00"));
-        list1.add(new Money_deposit_my_item("定期存款","3333.00","+333.00"));
-        list1.add(new Money_deposit_my_item("定期存款","3333.00","+333.00"));
-        list1.add(new Money_deposit_my_item("定期存款","3333.00","+333.00"));
+
         return list1;
     }
 
@@ -110,11 +113,39 @@ public class MoneyMyDepositFragment extends android.app.Fragment {
             public void run() {
                 OKhttpClass oKhttpClass=new OKhttpClass();
                 String result=oKhttpClass.ban4("1");
-                String result1=oKhttpClass.ban5("1");
-                String result2=oKhttpClass.ban6("1");
-                Log.d("bank4",result);
-                Log.d("bank5",result1);
-                Log.d("bank6",result2);
+                Log.d("ban4",result);
+                try {
+                    JSONObject jsonObject=new JSONObject(result);
+                    String data=jsonObject.getString("data");
+                    JSONObject jsonObject1=new JSONObject(data);
+                    String income=jsonObject1.getString("Income");
+                    String category=jsonObject1.getString("category");
+                    JSONArray jsonArray=new JSONArray(category);
+                    for (int i=0;i<jsonArray.length();i++)
+                    {
+                        String data1=jsonArray.get(i).toString();
+                        Log.d("ban4-data1",data1);
+
+                        JSONObject jsonObject2=new JSONObject(data1);
+                        String cate=jsonObject2.getString("category");
+                        String propertyNum=jsonObject2.getString("propertyNum");
+                        String totalIncome=jsonObject2.getString("totalIncome");
+                        Money_deposit_my_item item=new Money_deposit_my_item(cate,propertyNum,totalIncome);
+                        list.add(item);
+
+                    }
+
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            total.setText(income);
+                            adapter=new Money_deposit_my_adapter(getActivity(),list);
+                            recyc.setAdapter(adapter);
+                        }
+                    });
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }).start();
     }

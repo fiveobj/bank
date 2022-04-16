@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import com.example.bank.R;
 import com.example.bank.adapter.Money_deposit_all_son_adapter;
@@ -28,17 +29,21 @@ public class MoneyAllDepositSureActivity extends AppCompatActivity {
     private ArrayList<Money_deposit_all_item2> list=new ArrayList<>();
     private Money_deposit_all_son_adapter adapter;
     private String type;
+    private TextView name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_money_all_deposit_sure);
         Intent intent=getIntent();
+        name=findViewById(R.id.money_all_deposit_sure_name);
         if (intent.getStringExtra("type")!=null)
         {
             type=intent.getStringExtra("type");
+            name.setText(type);
             getokhttpdata(type);
         }
         recyc=findViewById(R.id.money_all_deposit_sure_recyc);
+
         //list=getData();
         adapter=new Money_deposit_all_son_adapter(this,list);
         GridLayoutManager gridLayoutManager=new GridLayoutManager(this,1,GridLayoutManager.VERTICAL,false);
@@ -83,11 +88,19 @@ public class MoneyAllDepositSureActivity extends AppCompatActivity {
                     {
                         String data1=jsonArray1.get(i).toString();
                         JSONObject jsonObject2=new JSONObject(data1);
-                        String rates=jsonObject2.getString("rates")+"%";
+                        String rates=jsonObject2.getString("rates");
                         String startMoney=jsonObject2.getString("startMoney");
                         String description=jsonObject2.getString("description");
                         String productprincipal=jsonObject2.getString("productprincipal");
+                        String productid=jsonObject2.getString("productId");
+                        String flowid=jsonObject2.getString("flowId");
+                        String type=jsonObject2.getString("category");
+                        String xi=jsonObject2.getString("xi");
                         Money_deposit_all_item2 item2=new Money_deposit_all_item2(rates,productprincipal,startMoney,description);
+                        item2.setProductid(productid);
+                        item2.setFlowid(flowid);
+                        item2.setType(type);
+                        item2.setXi(xi);
                         list.add(item2);
 
                     }

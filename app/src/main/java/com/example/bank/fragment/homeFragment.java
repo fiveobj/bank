@@ -90,9 +90,9 @@ public class homeFragment extends android.app.Fragment {
 
     private void getData() {
         ArrayList<Money_fItem> list1=new ArrayList<>();
-        list.add(new Money_fItem("定活两便","2.1%","50元起存","不定期"));
-        list.add(new Money_fItem("定活两便","2.1%","50元起存","不定期"));
-        list.add(new Money_fItem("定活两便","2.1%","50元起存","不定期"));
+        list.add(new Money_fItem("整存整取","2.1%","500","不定期"));
+        list.add(new Money_fItem("存本取息","2.1%","500","不定期"));
+        list.add(new Money_fItem("定活两便","2.1%","500","不定期"));
         //return list1;
 
     }

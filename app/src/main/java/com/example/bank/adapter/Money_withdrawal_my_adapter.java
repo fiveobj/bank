@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -40,11 +41,17 @@ public class Money_withdrawal_my_adapter extends RecyclerView.Adapter<RecyclerVi
         ViewHolder vh=(ViewHolder) holder;
         vh.date.setText(list.get(position).getDate());
         vh.principal.setText(list.get(position).getPrincipal());
-        vh.yesterday_earn.setText(list.get(position).getYesterday_earn());
         vh.sum_earn.setText(list.get(position).getSum_earn());
         if (position==0){
             vh.sum_earn.setTextColor(Color.parseColor("#484E54"));
         }
+        vh.buy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
     }
 
     @Override
@@ -54,13 +61,14 @@ public class Money_withdrawal_my_adapter extends RecyclerView.Adapter<RecyclerVi
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView date,principal,yesterday_earn,sum_earn;
+        private TextView date,principal,sum_earn;
+        private ImageView buy;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             date=itemView.findViewById(R.id.item_money_my_withdrawal_tv1);
             principal=itemView.findViewById(R.id.item_money_my_withdrawal_tv2);
-            yesterday_earn=itemView.findViewById(R.id.item_money_my_withdrawal_tv3);
+            buy=itemView.findViewById(R.id.item_money_my_withdrawal_buy);
             sum_earn=itemView.findViewById(R.id.item_money_my_withdrawal_tv4);
         }
     }

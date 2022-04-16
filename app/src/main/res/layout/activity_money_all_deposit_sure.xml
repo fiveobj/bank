@@ -24,14 +24,14 @@
                 android:layout_centerVertical="true"/>
 
             <TextView
+                android:id="@+id/money_all_deposit_sure_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:text="定期存款"
                 android:textColor="#ff484e54"
                 android:textSize="18sp"
-                android:layout_centerHorizontal="true"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="wrap_content"

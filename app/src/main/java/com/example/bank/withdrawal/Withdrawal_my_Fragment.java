@@ -7,14 +7,21 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.bank.R;
 import com.example.bank.adapter.Money_withdrawal_my_adapter;
 import com.example.bank.myclass.Money_withdrawal_my;
+import com.example.bank.tool.OKhttpClass;
 import com.example.bank.tool.SpaceItemDecoration;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -68,6 +75,7 @@ public class Withdrawal_my_Fragment extends android.app.Fragment {
     private RecyclerView recyc;
     private ArrayList<Money_withdrawal_my> list=new ArrayList<>();
     private Money_withdrawal_my_adapter adapter;
+    private TextView total;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -76,6 +84,7 @@ public class Withdrawal_my_Fragment extends android.app.Fragment {
         View view=inflater.inflate(R.layout.fragment_withdrawal_my_, container, false);
 
         recyc=view.findViewById(R.id.withdrawal_my_recyc);
+        total=view.findViewById(R.id.withdrawal_my_total);
         list=getdata();
         adapter=new Money_withdrawal_my_adapter(getActivity(),list);
         GridLayoutManager gridLayoutManager=new GridLayoutManager(getActivity(),1,GridLayoutManager.VERTICAL,false);
@@ -83,18 +92,59 @@ public class Withdrawal_my_Fragment extends android.app.Fragment {
         recyc.setLayoutManager(gridLayoutManager);
         recyc.addItemDecoration(new SpaceItemDecoration(0,40));
         recyc.setAdapter(adapter);
+        getokhttpdata();
         return view;
+    }
+
+    private void getokhttpdata()
+    {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                OKhttpClass oKhttpClass=new OKhttpClass();
+                String result=oKhttpClass.ban4("1");
+                Log.d("ban4",result);
+                try {
+                    JSONObject jsonObject=new JSONObject(result);
+                    String data=jsonObject.getString("data");
+                    JSONObject jsonObject1=new JSONObject(data);
+                    String income=jsonObject1.getString("Income");
+                    String category=jsonObject1.getString("category");
+                    JSONArray jsonArray=new JSONArray(category);
+                    for (int i=0;i<jsonArray.length();i++)
+                    {
+                        String data1=jsonArray.get(i).toString();
+                        Log.d("ban4-data1",data1);
+
+                        JSONObject jsonObject2=new JSONObject(data1);
+                        String cate=jsonObject2.getString("category");
+                        String propertyNum=jsonObject2.getString("propertyNum");
+                        String totalIncome=jsonObject2.getString("totalIncome");
+                        Money_withdrawal_my item=new Money_withdrawal_my(cate,propertyNum,totalIncome);
+                        list.add(item);
+
+                    }
+
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            total.setText(income);
+                            adapter=new Money_withdrawal_my_adapter(getActivity(),list);
+                            recyc.setAdapter(adapter);
+                        }
+                    });
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     private ArrayList<Money_withdrawal_my> getdata() {
 
         ArrayList<Money_withdrawal_my> list1=new ArrayList<>();
-        list1.add(new Money_withdrawal_my("购买日期","本金","昨日收益","总收益"));
-        list1.add(new Money_withdrawal_my("2022-1-1","1000.00","33.00","+10.00"));
-        list1.add(new Money_withdrawal_my("2022-1-1","1000.00","33.00","+10.00"));
-        list1.add(new Money_withdrawal_my("2022-1-1","1000.00","33.00","+10.00"));
-        list1.add(new Money_withdrawal_my("2022-1-1","1000.00","33.00","+10.00"));
-        list1.add(new Money_withdrawal_my("2022-1-1","1000.00","33.00","+10.00"));
+        list1.add(new Money_withdrawal_my("产品","本金","总收益"));
+
 
         return list1;
     }

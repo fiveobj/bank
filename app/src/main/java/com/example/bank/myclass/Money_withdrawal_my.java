@@ -3,11 +3,10 @@ package com.example.bank.myclass;
 public class Money_withdrawal_my {
     private String date,principal,yesterday_earn,sum_earn;
 
-    public Money_withdrawal_my(String date,String principal,String yesterday_earn,String sum_earn)
+    public Money_withdrawal_my(String date,String principal,String sum_earn)
     {
         this.date=date;
         this.principal=principal;
-        this.yesterday_earn=yesterday_earn;
         this.sum_earn=sum_earn;
     }
 

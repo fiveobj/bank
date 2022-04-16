@@ -138,9 +138,17 @@ public class MoneyAllDepositFragment extends android.app.Fragment {
                             JSONObject jsonObject2=new JSONObject(data1);
                             String name1=jsonObject2.getString("description");
                             String time=jsonObject2.getString("productprincipal");
-                            String startmoney=jsonObject2.getString("startMoney")+"元起存";
-                            String rate=jsonObject2.getString("rates")+"%";
+                            String startmoney=jsonObject2.getString("startMoney");
+                            String rate=jsonObject2.getString("rates");
+                            String productid=jsonObject2.getString("productId");
+                            String flowid=jsonObject2.getString("flowId");
+                            String type=jsonObject2.getString("category");
+                            String xi=jsonObject2.getString("xi");
                             Money_deposit_all_item2 item2=new Money_deposit_all_item2(rate,time,startmoney,name1);
+                            item2.setFlowid(flowid);
+                            item2.setProductid(productid);
+                            item2.setType(type);
+                            item2.setXi(xi);
                             list3.add(item2);
 
                         }

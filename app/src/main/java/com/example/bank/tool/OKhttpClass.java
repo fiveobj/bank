@@ -2,11 +2,17 @@ package com.example.bank.tool;
 
 import android.util.Log;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.FormBody;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class OKhttpClass {
@@ -96,6 +102,47 @@ public class OKhttpClass {
 
     //账户总览
     public String ban6(String uid){
+        Request.Builder builder=new Request.Builder().url(baseurls+"zhanghuzonglan/1");
+        builder.method("GET",null);
+        Request request=builder.build();
+        try(Response response=okHttpClient.newCall(request).execute()){
+            if(response.isSuccessful()){
+                return response.body().string();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.d("ban6-e",e.toString());
+        }
+        return "FW";
+    }
+
+    //提交购买
+    public String ban7(String id,String productId,String userId,String money) throws JSONException {
+        JSONObject jsonObject=new JSONObject();
+        jsonObject.put("id",id);
+        jsonObject.put("productId",productId);
+        jsonObject.put("userId",userId);
+        jsonObject.put("money",money);
+        String json=jsonObject.toString();
+        FormBody.Builder builder=new FormBody.Builder();
+        RequestBody requestBody=builder.build();
+        Request request=new Request.Builder().url(baseurls+"buy").post(requestBody.create(MediaType.parse("application/json"),json)).build();
+        try (Response response=okHttpClient.newCall(request).execute()){
+            if (response.isSuccessful())
+            {
+                return response.body().string();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.d("ban7-e",e.toString());
+        }
+
+        return "FW";
+    }
+
+    //账户总览
+    public String ban8(String money){
         Request.Builder builder=new Request.Builder().url(baseurls+"zhanghuzonglan/1");
         builder.method("GET",null);
         Request request=builder.build();

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.style.RelativeSizeSpan;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -112,11 +113,11 @@ public class Withdrawal_all_Fragment extends android.app.Fragment {
 
     private ArrayList<Money_withdrawal_all> getData() {
         ArrayList<Money_withdrawal_all> list1 = new ArrayList<>();
-        list1.add(new Money_withdrawal_all(R.mipmap.withdrawal_all_view1, "定期存款", "1735"));
+       /* list1.add(new Money_withdrawal_all(R.mipmap.withdrawal_all_view1, "定期存款", "1735"));
         list1.add(new Money_withdrawal_all(R.mipmap.withdrawal_all_view2, "活期存款", "1735"));
         list1.add(new Money_withdrawal_all(R.mipmap.withdrawal_all_view3, "定活两便", "1735"));
         list1.add(new Money_withdrawal_all(R.mipmap.withdrawal_all_view4, "通知存款", "1735"));
-        list1.add(new Money_withdrawal_all(R.mipmap.withdrawal_all_view5, "大额存单", "1735"));
+        list1.add(new Money_withdrawal_all(R.mipmap.withdrawal_all_view5, "大额存单", "1735"));*/
         return list1;
     }
 
@@ -134,6 +135,7 @@ public class Withdrawal_all_Fragment extends android.app.Fragment {
             public void run() {
                 OKhttpClass oKhttpClass=new OKhttpClass();
                 String result=oKhttpClass.ban6("1");
+                Log.d("ban6",result);
                 try {
                     JSONObject jsonObject=new JSONObject(result);
                     String data=jsonObject.getString("data");
@@ -144,7 +146,7 @@ public class Withdrawal_all_Fragment extends android.app.Fragment {
                         JSONObject jsonObject1=new JSONObject(data1);
                         String propertyType=jsonObject1.getString("propertyType");
                         String sumtotal=jsonObject1.getString("sumtotal");
-                        Money_withdrawal_all item=new Money_withdrawal_all(vieww[i],propertyType,sumtotal);
+                        Money_withdrawal_all item=new Money_withdrawal_all(vieww[i%5],propertyType,sumtotal);
                         list.add(item);
                     }
                     xContents=new ArrayList<String>();
@@ -173,7 +175,7 @@ public class Withdrawal_all_Fragment extends android.app.Fragment {
                     yContents.add(new PieEntry(m5,"大额订单"));*/
                     for (int i=0;i<list.size();i++)
                     {
-                        yContents.add(new PieEntry(m[i],list.get(i).getName()));
+                        yContents.add(new PieEntry(m[i%5],list.get(i).getName()));
                     }
 
 
